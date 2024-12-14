@@ -1,0 +1,170 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+}
+
+#calendar-page {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Calendar Header */
+#calendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#prev-month, #next-month {
+    background: #007BFF;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#prev-month:hover, #next-month:hover {
+    background-color: #0056b3;
+}
+
+#current-month {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 20px;
+}
+
+/* Calendar Grid */
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#calendar-grid div {
+    padding: 15px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+#calendar-grid div:hover {
+    background-color: #007BFF;
+    color: white;
+    transform: scale(1.1);
+}
+
+#calendar-grid .event {
+    background-color: #FF9800;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.modal-content i {
+    margin-right: 10px;
+}
+
+/* Settings Page */
+.setting {
+    margin-bottom: 15px;
+}
+
+.setting label {
+    display: block;
+    font-size: 16px;
+}
+
+#day-input, #alert-tone, #vibrate-toggle {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+/* Colorful Event Highlighting */
+.event-1 { background-color: #FF4081; }  /* Pink */
+.event-2 { background-color: #FFEB3B; }  /* Yellow */
+.event-3 { background-color: #4CAF50; }  /* Green */
+.event-4 { background-color: #2196F3; }  /* Blue */
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #calendar-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

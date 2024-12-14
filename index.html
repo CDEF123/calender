@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Android-style Calendar</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="calendar-page">
+        <header>
+            <h1>My Calendar</h1>
+            <button id="settings-icon" onclick="openSettings()">Settings</button>
+        </header>
+        
+        <div id="calendar-header">
+            <button id="prev-month" onclick="changeMonth(-1)">previous</button>
+            <h2 id="current-month"></h2>
+            <button id="next-month" onclick="changeMonth(1)">next</button>
+        </div>
+
+        <div id="current-day">
+            <p id="day-text">Today: <span id="current-date">Loading...</span></p>
+        </div>
+
+        <div id="calendar-grid">
+            <!-- Calendar days will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Event Modal -->
+    <div id="event-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Create Event</h3>
+            <label for="event-title">
+                <i class="fas fa-calendar-day"></i> Title:
+            </label>
+            <input type="text" id="event-title">
+            <label for="event-description">
+                <i class="fas fa-pencil-alt"></i> Description:
+            </label>
+            <textarea id="event-description"></textarea>
+            <label for="event-time">
+                <i class="fas fa-clock"></i> Time:
+            </label>
+            <input type="time" id="event-time">
+            <button onclick="saveEvent()">Save Event</button>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Settings Page -->
+    <div id="settings-page" style="display: none;">
+        <header>
+            <h1>Settings</h1>
+            <button onclick="goBack()">Back</button>
+        </header>
+        <div class="setting">
+            <label for="day-input">Set Current Day:</label>
+            <input type="date" id="day-input" onchange="updateDay()">
+        </div>
+        <div class="setting">
+            <label for="alert-tone">Choose Alert Tone:</label>
+            <select id="alert-tone" onchange="updateSettings()">
+                <option value="default">Default</option>
+                <option value="beep">Beep</option>
+                <option value="chime">Chime</option>
+            </select>
+        </div>
+        <div class="setting">
+            <label for="vibrate-toggle">Enable Vibration:</label>
+            <input type="checkbox" id="vibrate-toggle" onchange="updateSettings()">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
